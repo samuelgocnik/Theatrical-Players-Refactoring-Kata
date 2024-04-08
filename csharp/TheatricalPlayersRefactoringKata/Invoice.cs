@@ -16,5 +16,7 @@ namespace TheatricalPlayersRefactoringKata
             this._performances = performance;
         }
 
+        public 
+
     }
 }
