@@ -27,8 +27,8 @@ namespace TheatricalPlayersRefactoringKata
             result.Append("<html>\n");
             result.Append("<body>\n");
             result.Append(string.Format("<h1>Statement for {0}</h1>\n", values.CustomerName));
-            result.Append("<ul>\n");
-            result.Append("<li>Seats:</li>\n");
+            result.Append("<table>\n");
+            result.Append("<tr><th>play</th><th>\n");
             CultureInfo cultureInfo = new CultureInfo("en-US");
             foreach (var currPlay in values.CurrentPlay)
             {
