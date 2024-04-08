@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text;
 using TheatricalPlayersRefactoringKata;
 
 namespace TheatricalPlayersRefactoringKata
@@ -20,7 +21,25 @@ namespace TheatricalPlayersRefactoringKata
             return result;
         }
         
-
+        public string PrintHtml(InvoiceValues values)
+        {
+            StringBuilder result = new StringBuilder();
+            result.Append("<html>\n");
+            result.Append("<body>\n");
+            result.Append(string.Format("<h1>Statement for {0}</h1>\n", values.CustomerName));
+            result.Append("<ul>\n");
+            result.Append("<li>Seats:</li>\n");
+            CultureInfo cultureInfo = new CultureInfo("en-US");
+            foreach (var currPlay in values.CurrentPlay)
+            {
+                result.Append(String.Format(cultureInfo, "  {0}: {1:C} ({2} seats)\n", currPlay.Name, Convert.ToDecimal(currPlay.Amount), currPlay.Seats));
+            }
+            result.Append(String.Format(cultureInfo, "Amount owed is {0:C}\n", Convert.ToDecimal(values.Total / 100)));
+            result.Append(String.Format("You earned {0} credits\n", values.Credits));
+            result.Append("</body>\n");
+            result.Append("</html>\n");
+            return result.ToString();
+        }
     }
 }
 
