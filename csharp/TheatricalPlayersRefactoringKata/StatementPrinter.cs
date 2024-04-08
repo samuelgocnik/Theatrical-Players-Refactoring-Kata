@@ -17,7 +17,7 @@ namespace TheatricalPlayersRefactoringKata
             {
                 var play = plays[perf.PlayID];
                 var thisAmount = values.CalculateAmount(play, perf);
-                values.CalculateVolumeCreadits(play, perf);
+                values.CalculateVolumeCredits(play, perf);
                 values.CurrentPlay.Add(new CurrentPlay { Name = play.Name, Amount = Convert.ToDecimal(thisAmount / 100), Seats = perf.Audience });;
                 values.Total += thisAmount;
             }
@@ -84,7 +84,7 @@ public class InvoiceValues
         return thisAmount;
     }
 
-    public void CalculateVolumeCreadits(Play play, Performance perf)
+    public void CalculateVolumeCredits(Play play, Performance perf)
     {
         Credits += Math.Max(perf.Audience - 30, 0);
         // add extra credit for every ten comedy attendees
