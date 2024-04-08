@@ -37,9 +37,8 @@ namespace TheatricalPlayersRefactoringKata.Tests
             Invoice invoice = new Invoice("BigCoII", new List<Performance>{new Performance("henry-v", 53),
                 new Performance("as-like", 55)});
             
-            StatementPrinter statementPrinter = new StatementPrinter();
-            var values = new InvoiceValues(invoice, plays);
-            Assert.Throws<Exception>(() => statementPrinter.Print(values));
+            //StatementPrinter statementPrinter = new StatementPrinter();
+            Assert.Throws<Exception>(() => new InvoiceValues(invoice, plays));
         }
     }
 }
