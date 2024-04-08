@@ -22,7 +22,8 @@ namespace TheatricalPlayersRefactoringKata.Tests
                 new Performance("othello", 40)});
             
             StatementPrinter statementPrinter = new StatementPrinter();
-            var result = statementPrinter.Print(invoice, plays);
+            var values = new InvoiceValues(invoice, plays);
+            var result = statementPrinter.Print(values);
 
             Approvals.Verify(result);
         }
@@ -37,8 +38,8 @@ namespace TheatricalPlayersRefactoringKata.Tests
                 new Performance("as-like", 55)});
             
             StatementPrinter statementPrinter = new StatementPrinter();
-
-            Assert.Throws<Exception>(() => statementPrinter.Print(invoice, plays));
+            var values = new InvoiceValues(invoice, plays);
+            Assert.Throws<Exception>(() => statementPrinter.Print(values));
         }
     }
 }
